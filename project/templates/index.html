@@ -1,12 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{judul}}</title>
-</head>
-<body>
-    <h1>{{judul}}</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- awal nav -->
+{% include 'snippets/nav.html' %}
+
+<!-- awal navbarside -->
+{% include 'snippets/navside.html' %}
+
+<!-- awal home -->
+{% include 'snippets/home.html' %}
+
+    
+
+<!-- awal about -->
+{% include 'snippets/about.html' %}
+
+<!-- awal myskill -->
+{% include 'snippets/skill.html' %}
+
+<!-- awal mysevices -->
+{% include 'snippets/services.html' %}
+
+<!-- awal myportfolio -->
+{% include 'snippets/portfolio.html' %}
+
+<!-- awal myblog -->
+{% include 'snippets/blog.html' %}
+
+<!-- awal mycontact -->
+{% include 'snippets/contact.html' %}
+
+
+
+{% endblock content %}
+    

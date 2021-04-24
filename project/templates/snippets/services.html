@@ -1,0 +1,39 @@
+<section class="myservice" id="myservice">
+    <div class=" myservice-container text-light">
+        <main class="myservice-main">
+            <header class="myservice-header">
+                <p>Get Support for Services</p>
+                <h1 class="text-warning">My Service</h1>
+            </header>
+            <div class="service-list cust-list d-grid pt-5">
+                
+                
+                {% for service in services %}
+                    {% if service.is_published %}
+                        <div class="item-service item-list d-grid">
+                            <div class="service-image">
+                                
+                                {% if service.icon.url is not None %}
+                                    <img src="{{service.icon.url}}" alt="ikon">
+                                    {% else %}
+                                    <div> </div>
+                                {% endif %}
+                                    
+                            </div>
+                            <div class="service-describ">
+                                <h3>{{service.judul}}</h3>
+                                <p>{{service.deskripsi|truncatewords:"20"}}</p>
+                            </div>
+                        </div>
+                        
+                    {% endif %}
+                        
+                    
+                {% endfor %}
+                    
+                
+                
+            </div>
+        </main>
+    </div>    
+    </section>

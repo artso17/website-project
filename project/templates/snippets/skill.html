@@ -1,0 +1,27 @@
+<section class="myskill" id="myskill">
+    <div class=" myskill-container text-light">
+        <main class="myskill-main">
+            <header class="myskill-header">
+                <p>Level of Knowledge</p>
+                <h1 class="text-warning">My Skill</h1>
+            </header>
+            <div class="skill-list d-grid pt-5">
+                
+                
+                {% for skill in skills  %}
+                <div class="item-skill-list d-grid">
+                    
+                    <p class="skill">{{skill.judul}}</p>
+                    <p class="takaran text-end">{{skill.nilai}}%</p>
+                    <div class="progress p-bar">
+                        <div class="progress-bar" role="progressbar" style="width:{{skill.nilai}}%" aria-valuenow="{{skill.nilai}}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+                </div>
+                {% endfor %}
+                
+
+            </div>
+        </main>
+    </div>    
+    </section>

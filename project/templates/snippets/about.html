@@ -1,0 +1,57 @@
+<section class="about" id="about">
+    <div class=" about-container text-light">
+        <main class="about-main">
+            
+            <div class="img" style="background-image:url({{abouts.gambar.url}})">
+                <h1 class="text-warning ">About Me</h1>
+            </div>
+            
+                
+                
+        <div class="about-list">
+            <div class="about-list-describ">
+                <h1 class="text-warning">About Me</h1>
+                <h2>{{abouts.about}}</h2>
+            </div>
+            <div class="biodata ">
+                <div>
+                    <p>Birthday</p>
+                    <p>Website</p>
+                    <p>Phone</p>
+                    <p>City</p>
+                </div>
+                <div>
+                    <p>: {{abouts.birthday}}</p>
+                    <p>: {{abouts.website}}</p>
+                    <p>: {{abouts.phone}}</p>
+                    <p>: {{abouts.city}}</p>
+                </div>
+                <div>
+                    <p>Age</p>
+                    <p>Degree</p>
+                    <p>Mail</p>
+                    <p>Freelance</p>
+                </div>
+                <div>
+                    <p>: {{age}}</p>
+                    <p>: {{abouts.degree}}</p>
+                    <p>: {{abouts.email}}</p>
+                    
+                    {% if abouts.freelancer %}
+                    <p>: Available</p>
+                    {% else %}
+                    <p>: Unavailable</p>
+                    {% endif %}
+                        
+                </div>
+    
+            </div>
+            <div class="button-about ">
+                <a href="#" class="btn btn-primary">Hire ME</a>
+                <a href="#" class="btn btn-warning ml-3">Download CV</a>
+            </div>
+    </div>
+    </main>
+    </div>   
+    
+    </section>

@@ -1,0 +1,523 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* height: 5440px; */
+    background: rgba(44, 45, 48, 1);
+
+    ;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.myskill h1,
+.myservice h1,
+.myportfolio h1 {
+    margin-left: -2px;
+}
+
+.section {
+    margin-top: 60px;
+    margin-left: 20px
+}
+
+.mt-60 {
+    margin-top: 60px;
+}
+
+.f-family-saira {
+    font-family: 'Saira';
+}
+
+.f-family-roboto {
+    font-family: 'roboto';
+}
+
+.f-bold {
+    font-style: bold;
+}
+
+.c-blue {
+    color: rgba(13, 65, 225, 1);
+}
+
+:root {
+    --c-blue: rgba(13, 65, 225, 1);
+    --c-yellow: #ffc107;
+    --c-grey: rgba(76, 78, 84, 1);
+}
+
+.rotate-90 {
+    transform: rotate(90deg);
+}
+
+
+.kotak {
+    height: 47px;
+    width: 47px;
+    position: relative;
+}
+
+.option {
+    position: relative;
+    margin-left: 5px;
+    margin-top: 8px;
+}
+
+.row-space-20 {
+    margin-top: 20px
+}
+
+.row-space {
+    margin-top: 50px;
+}
+
+.row-space-100 {
+    margin-top: 100px;
+}
+
+.row-space-80 {
+    margin-top: 80px;
+}
+
+
+.d-grid {
+    display: grid;
+}
+
+.col-sidebar {
+    height: 60%;
+    width: fit-content;
+    grid-template-rows: repeat(50px, 1fr);
+    /* justify-content: center; */
+    gap: 30px;
+    margin-bottom: 15px;
+    /* padding-bottom: 15px; */
+}
+
+.follow-navside p {
+    writing-mode: vertical-lr;
+}
+
+.follow-navside {
+    width: fit-content;
+}
+
+.line-img {
+    display: grid;
+    background-repeat: no-repeat;
+    justify-items: center;
+}
+
+.c-grey {
+    color: var(--c-grey);
+}
+
+
+
+
+.sosmed-sidebar {
+    /* padding: 0; */
+    display: grid;
+    justify-content: center;
+    /* width: fit-content; */
+    gap: 10px;
+
+}
+
+/* awal home */
+.home-container {
+    display: grid;
+    width: 100%;
+    height: 620px;
+    grid-template-areas:
+        'desain';
+    place-items: center;
+    text-align: center;
+    background-image: url('media/images/home.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.desain {
+    grid-area: desain;
+}
+
+/* akhir home */
+
+/* awal about */
+.about-container {
+    display: grid;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    padding-top: 60px;
+    padding-left: 60px;
+    padding-right: 30px;
+    display: grid;
+}
+
+.about-main {
+    grid-template-areas:
+        'img about-list';
+    /* grid-template-columns: 0.5fr 1fr; */
+    gap: 20px;
+}
+
+.img {
+    grid-area: 'img';
+    display: grid;
+    width: 450px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 290px;
+    padding: 20px;
+    align-items: flex-end;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.img h1 {
+    display: none;
+
+}
+
+.about-list {
+    grid-area: 'about-list';
+
+}
+
+.biodata {
+    display: grid;
+    grid-template-areas: 'quest1 answer1 quest2 answer2';
+    grid-template-columns: repeat (auto-fit, minmax(10px, 1fr));
+    text-align: start;
+    margin-top: 20px
+}
+
+/* awal myskills */
+.skill-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.item-skill-list {
+    grid-template-areas:
+        'ability1 ability2'
+        'p-bar p-bar';
+}
+
+.skill {
+    grid-area: ability1;
+}
+
+.takaran {
+    grid-area: ability2;
+    text-align: end;
+}
+
+.item-skill-list .p-bar {
+    grid-area: p-bar;
+}
+
+/* awal myservice */
+.cust-list {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.item-list {
+    grid-template-areas:
+        'ikon describ';
+    background-color: var(--c-grey);
+    ;
+    border-radius: 10px;
+    padding: 15px;
+    gap: 15px;
+}
+
+.service-image {
+    grid-area: ikon;
+}
+
+.service-describ {
+    grid-area: describ;
+}
+
+/* awal myportfolio */
+
+.cust-nav {
+    row-gap: 5px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 70px repeat(auto-fit, minmax(50px, 150px));
+}
+
+.cust-nav a {
+    text-decoration: none;
+    color: white;
+    padding: 2px;
+    transition: 200ms ease;
+}
+
+.cust-nav a:hover {
+    /* background-color: var(--c-blue); */
+    /* background-color: #ffc107; */
+    /* color: black; */
+    color: var(--c-blue);
+    /* color: var(--c-yellow); */
+    /* font-weight: bold; */
+    /* border-radius: 10px; */
+
+
+}
+
+.btn-myportfolio {
+    display: grid;
+    grid-template-columns: max-content;
+    justify-content: center;
+}
+
+.myportfolio-item {
+    background-color: var(--c-grey);
+    border-radius: 15px;
+}
+
+.myportfolio-describ {
+    grid-template-columns: 0.1fr 1fr;
+    align-items: center;
+    gap: 5px;
+}
+
+.myportfolio-box {
+    gap: 10px;
+    text-align: justify;
+    padding: 24px;
+
+}
+
+
+/* awal blog */
+
+.item-blog img {
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+/* awal contact */
+.mymap-item {
+    height: 400px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.contact-list {
+    grid-template-columns: 0.1fr 1fr;
+    padding: 15px;
+    gap: 15px;
+}
+
+
+.form-mycontact-list {
+    display: grid;
+    grid-template-areas:
+        'form1 form2'
+        'form3 form3'
+        'form4 form4'
+    ;
+    gap: 20px;
+}
+
+input {
+    background-color: var(--c-grey) !important;
+    color: white !important;
+    font-size: 20px !important;
+    height: 50px !important;
+}
+
+textarea {
+    background-color: var(--c-grey) !important;
+    color: white !important;
+    font-size: 20px !important;
+}
+
+::placeholder {
+    color: white !important;
+    opacity: 0.5 !important;
+}
+
+.form-name {
+    grid-area: form1 !important;
+}
+
+.form-email {
+    grid-area: form2 !important;
+}
+
+.form-subject {
+    grid-area: form3;
+}
+
+.form-message {
+    grid-area: form4;
+    height: 300px !important;
+}
+
+.contact-me {
+    /* position: absolute; */
+    left: auto;
+    right: 30px;
+    bottom: 10px
+}
+
+.box-animation {
+    height: 100px;
+    background-color: white;
+}
+
+.bouncing img {
+    animation: bounce 1s infinite;
+}
+
+.bouncing img:hover div {
+    background-color: black;
+
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px)
+    }
+}
+
+
+/* ukuran layar tablet */
+
+
+
+
+
+@media screen and (max-width: 992px) {
+    .navside {
+        display: none
+    }
+
+    .nav-item img {
+        height: 70%;
+        width: 70%;
+    }
+
+    .about-container main {
+        grid-template-areas: 'img'
+            'about-list';
+    }
+
+
+    .skill-list {
+        grid-template-columns: 100%;
+
+    }
+
+    .cust-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    main {
+        padding-left: 30px
+    }
+
+
+
+}
+
+@media screen and (min-width:992px) {
+    .nav-img {
+        display: none
+    }
+}
+
+@media screen and (max-width:665px) {
+
+
+    .cust-list {
+        grid-template-columns: 1fr;
+    }
+
+    .biodata {
+        grid-template-areas: 'quest1 answer1';
+    }
+
+    .myportfolio-describ {
+        grid-template-columns: 0.1fr 1fr;
+
+    }
+
+    .img {
+        width: 320px;
+        height: 250px;
+        background-position: center;
+        border-radius: 10px;
+    }
+
+    .form-mycontact-list {
+        grid-template-areas:
+            'form1 '
+            'form2'
+            'form3'
+            'form4'
+        ;
+    }
+}
+
+@media screen and (max-width: 442px) {
+    .home h2 {
+        font-size: 150%;
+    }
+
+    .home h1 {
+        font-size: 150%;
+    }
+
+    .img {
+        width: 220px;
+        height: 150px;
+        background-position: center;
+        border-radius: 10px;
+    }
+
+    .biodata {
+        grid-template-areas: 'quest1 answer1';
+    }
+
+    .cust-nav {
+        grid-template-columns: repeat(auto-fit, minmax(50px, 150px));
+    }
+
+    .home h2,
+    .home h1 {
+        font-size: 100%;
+    }
+
+    .map-box {
+        height: 200px;
+
+    }
+
+}
