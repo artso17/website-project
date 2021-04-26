@@ -1,3 +1,4 @@
+{% load static %}
 <section class="myportfolio" id="myportfolio">
     <div class=" myportfolio-container text-light">
         <main class="myportfolio-main">
@@ -5,31 +6,34 @@
                 <p>Awesome Work and Enjoy</p>
                 <h1 class="text-warning">My Portfolio</h1>
             </header>
-            <nav class="nav-myportfolio cust-nav d-grid pt-3">
-                    <h6><a href="#home">All</a></h6>
-                    <h6><a href="#">Web Design</a></h6>
-                    <h6><a href="#">Mobile Design</a></h6>
-                    <h6><a href="#">Graphic</a></h6>
-            </nav>
             <div class="myportfolio-list cust-list d-grid pt-5">
                 <!-- awal item-list -->
-                
-                <div class="myportfolio-item card">
-                    <img src="media/images/sevice-img.svg" class="card-img-top" alt="...">
-                    <div class=" myportfolio-box d-grid">
-                        <div class=" d-grid myportfolio-describ">
-                            <img src="media/images/icon-kalender.svg" alt="">
-                            <h5 class="card-text m-0">Web Developer</h5>
-                            <img src="media/images/icon-kalender.svg" alt="">
-                            <h5 class="card-text m-0">21 januari 2019</h5> 
-                        </div>
-                        <div class="myportfolio-text">
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero eum laudantium nulla sit sequi.</p>
-                            <a href="#" class="btn btn-primary">More Detail</a>
-                        </div>
-                    </div>
-                </div>
+                {% for portfolio in portfolios %}
+                    {% if portfolio.is_published %}
+                        <div class="myportfolio-item my-item card">
+                        
+                            {% if portfolio.gambar.url is not none %}
+                                <img src="{{portfolio.gambar.url}}" class="card-img-top" alt="Sample of Image">
 
+                            {% endif %}
+                            <div class=" myportfolio-box my-box d-grid">
+                                <div class=" d-grid myportfolio-describ my-describ">
+                                    <img src="{% static 'vendor/css/media/images/icon-kalender.svg' %}" alt="Icon">
+                                    <h6 class="card-text m-0">{{portfolio.skill}}</h6>
+                                    <img src="{% static 'vendor/css/media/images/icon-kalender.svg' %}" alt="">
+                                    <h6 class="card-text m-0">{{portfolio.published}}</h6> 
+                                </div>
+                                <div class="myportfolio-text">
+                                    <p>{{portfolio.deskripsi|truncatewords:"18" }}</p>
+                                    <a href="#" class="btn btn-primary">More Detail</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endif %}
+                    
+                {% endfor %}
+                    
                 <!-- akhir item-list -->
             </div>
             <div class="btn-myportfolio mt-3">

@@ -27,7 +27,7 @@ class Skill(models.Model):
     is_published = models.BooleanField(default=False)
 
     def __str__(self):
-        return '{}.{}'.format(self.id, self.judul)
+        return '{}'.format(self.judul)
 
 
 class Service(models.Model):
@@ -37,7 +37,7 @@ class Service(models.Model):
     is_published = models.BooleanField(default=False)
 
     def __str__(self):
-        return '{}.{}'.format(self.id, self.judul)
+        return '{}'.format(self.judul)
 
 
 class Portfolio(models.Model):

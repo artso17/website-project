@@ -281,7 +281,10 @@ main {
     /* font-weight: bold; */
     /* border-radius: 10px; */
 
+}
 
+.my-judul {
+    text-align: start;
 }
 
 .btn-myportfolio {
@@ -290,18 +293,18 @@ main {
     justify-content: center;
 }
 
-.myportfolio-item {
+.my-item {
     background-color: var(--c-grey);
     border-radius: 15px;
 }
 
-.myportfolio-describ {
+.my-describ {
     grid-template-columns: 0.1fr 1fr;
     align-items: center;
     gap: 5px;
 }
 
-.myportfolio-box {
+.my-box {
     gap: 10px;
     text-align: justify;
     padding: 24px;
@@ -381,6 +384,10 @@ textarea {
     left: auto;
     right: 30px;
     bottom: 10px
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 .box-animation {

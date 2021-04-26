@@ -1,4 +1,5 @@
-<section class="mycontact" id="mycontact">
+{% load static %}
+<section class="mycontact mb-4" id="mycontact">
     <div class=" mycontact-container text-light">
         <main class="mycontact-main">
             <header class="mycontact-header">
@@ -16,11 +17,11 @@
                 <a href="#">
                     <div class="item-mycontact contact-list d-grid">
                         <div class="mycontact-image">
-                            <img src="media/images/phone-icon.svg" alt="contact us">
+                            <img src="{% static 'vendor/css/media/images/phone-icon.svg' %}" alt="Phone">
                         </div>
                         <div class="mycontact-describ">
                             <h3>Call On Us</h3>
-                            <h5>0813-7307-5228 </h5>
+                            <h5>{{abouts.phone}}</h5>
                         </div>
                     </div>
                 </a>
@@ -28,35 +29,39 @@
                 <a href="https://goo.gl/maps/m43aCKJRChbw8Usr9" target="_blank">
                     <div class="item-mycontact contact-list d-grid">
                         <div class="mycontact-image">
-                            <img src="media/images/map-icon.svg" alt="contact us">
+                            <img src="{% static 'vendor/css/media/images/map-icon.svg' %}" alt="contact us">
                         </div>
                         <div class="mycontact-describ">
                             <h3>Visit Office</h3>
-                            <h5>Batam, INA </h5>
+                            <h5>{{abouts.city}}</h5>
                         </div>
                     </div>
                 </a>
-    
-                <div class="item-mycontact contact-list d-grid">
-                    <div class="mycontact-image">
-                        <img src="media/images/mail-icon.svg" alt="contact us">
+                
+                <label for="form-name" class="pointer">
+                    <div class="item-mycontact contact-list d-grid" >
+                        <div class="mycontact-image">
+                            <img src="{% static 'vendor/css/media/images/mail-icon.svg' %}" alt="Email">
+                        </div>
+                        <div class="mycontact-describ">
+                            <h3>Email at Us</h3>
+                            <h5>{{abouts.email }}</h5>
+                        </div>
                     </div>
-                    <div class="mycontact-describ">
-                        <h3>Email at Us</h3>
-                        <h5>defuse805@gmail.com</h5>
-                    </div>
-                </div>
+
+                </label>
     
                 <!-- akhir item-list -->
             </div>
             <div class="pt-5 form-box">
-                <form class="form-mycontact-list d-grid" id="form-mycontact">
-                        <input type="text" class="form-control form-name" placeholder="Your first name">
-                        <input type="email" class="form-control form-email" placeholder="Your email">
-                        <input type="text" class="form-control form-subject" placeholder="Your subject">
-                        <textarea class="form-control form-message" placeholder="Your message"></textarea>
+                <form class="form-mycontact-list d-grid" id="form-mycontact" method="POST">
+                    {% csrf_token %}
+                        <input type="text" class="form-control form-name" name="{{contact.pengirim.name}}" placeholder="Your first name" id="form-name" maxlength="{{contact.pengirim.max}}" required>
+                        <input type="email" class="form-control form-email" name="{{contact.email.name}}" placeholder="Your email" required>
+                        <input type="text" class="form-control form-subject" name="{{contact.subject.name}}" maxlength="{{contact.subject.max}}"placeholder="Your subject" required>
+                        <textarea class="form-control form-message" placeholder="Your message" name="{{contact.deskripsi.name}}" required></textarea>
                         <div class="btn-contact">
-                            <button type="button" class="btn btn-primary">Send Message</button>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
                         </div>
                         </div>
                 </form>
