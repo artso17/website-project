@@ -3,7 +3,6 @@ html {
 }
 
 body {
-    /* height: 5440px; */
     background: rgba(44, 45, 48, 1);
 
     ;
@@ -56,6 +55,44 @@ a:hover {
 
 }
 
+.loader::before,
+.loader::after {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: var(--c-blue-l);
+    position: absolute;
+    animation: load .7s infinite alternate ease-in-out;
+}
+
+.loader::before {
+    top: 0;
+}
+
+.loader::after {
+    bottom: 0;
+}
+
+@keyframes load {
+    0% {
+        left: 0;
+        height: 30px;
+        width: 15px
+    }
+
+    50% {
+        height: 8px;
+        width: 40px
+    }
+
+    100% {
+        left: 235px;
+        height: 30px;
+        width: 15px
+    }
+}
+
 .myskill h1,
 .myservice h1,
 .myportfolio h1 {
@@ -84,13 +121,15 @@ a:hover {
 }
 
 .c-blue {
-    color: rgba(13, 65, 225, 1);
+    color: var(--c-blue);
 }
 
 :root {
-    --c-blue: rgba(13, 65, 225, 1);
+    --c-blue: #00a7c4 !important;
     --c-yellow: #ffc107;
     --c-grey: rgba(76, 78, 84, 1);
+    --c-dark-grey: rgba(44, 45, 48, 1);
+    --c-blue-l: #0077B6;
 }
 
 .rotate-90 {
@@ -131,6 +170,10 @@ a:hover {
     display: grid;
 }
 
+.navbar {
+    z-index: 88;
+}
+
 .col-sidebar {
     height: 60%;
     width: fit-content;
@@ -139,6 +182,7 @@ a:hover {
     gap: 30px;
     margin-bottom: 15px;
     /* padding-bottom: 15px; */
+    z-index: 88;
 }
 
 .follow-navside p {
@@ -180,7 +224,7 @@ a:hover {
         'desain';
     place-items: center;
     text-align: center;
-    background-image: url('media/images/home.svg');
+
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -435,6 +479,7 @@ textarea {
 
 .bouncing img {
     animation: bounce 1s infinite;
+    z-index: 88;
 }
 
 .bouncing img:hover div {

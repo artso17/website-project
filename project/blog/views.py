@@ -34,7 +34,6 @@ def home(request):
                 email=request.POST.get('email'),
                 deskripsi=request.POST.get('deskripsi'),
             )
-            print('valid')
 
     konteks = {
         'judul': 'home',
