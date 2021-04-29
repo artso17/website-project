@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import CreateModel
+from django.core.mail import send_mail
 import datetime
 
 from .models import (
@@ -28,11 +29,23 @@ def home(request):
 
     if request.method == 'POST':
         if contact.is_valid():
+            subject = request.POST.get('subject')
+            pengirim = request.POST.get('pengirim')
+            email = request.POST.get('email')
+            deskripsi = request.POST.get('deskripsi')
+            '''
             Contact.objects.create(
-                subject=request.POST.get('subject'),
-                pengirim=request.POST.get('pengirim'),
-                email=request.POST.get('email'),
-                deskripsi=request.POST.get('deskripsi'),
+                subject=subject,
+                pengirim=pengirim,
+                email=email,
+                deskripsi=deskripsi,
+            )
+            '''
+            send_mail(
+                f'Dari {pengirim} tentang {subject}',
+                deskripsi,
+                email,
+                ['defuse805@gmail.com'],
             )
 
     konteks = {
