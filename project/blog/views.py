@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import CreateModel
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMessage
 import datetime
 
 from .models import (
@@ -27,27 +27,7 @@ def home(request):
     blogs = Blog.objects.all()
     contact = CreateModel(request.POST)
 
-    if request.method == 'POST':
-        if contact.is_valid():
-            subject = request.POST.get('subject')
-            pengirim = request.POST.get('pengirim')
-            email = request.POST.get('email')
-            deskripsi = request.POST.get('deskripsi')
-            '''
-            Contact.objects.create(
-                subject=subject,
-                pengirim=pengirim,
-                email=email,
-                deskripsi=deskripsi,
-            )
-            '''
-            send_mail(
-                f'Dari {pengirim} tentang {subject}',
-                deskripsi,
-                email,
-                ['defuse805@gmail.com'],
-            )
-
+    pengirim = ''
     konteks = {
         'judul': 'home',
         'abouts': myabout,
@@ -58,5 +38,24 @@ def home(request):
         'blogs': blogs,
         'contact': contact,
 
+    }
+    if request.method == 'POST':
+        if contact.is_valid():
+            subject = request.POST.get('subject')
+            pengirim = request.POST.get('pengirim')
+            email = request.POST.get('email')
+            deskripsi = request.POST.get('deskripsi')
+            Contact.objects.create(
+                subject=subject,
+                pengirim=pengirim,
+                email=email,
+                deskripsi=deskripsi,
+            )
+
+            konteks['pengirim'] = pengirim
+
+    konteks['jumlah'] = {
+        'portfolios': len(portfolios),
+        'blogs': len(blogs),
     }
     return render(request, 'index.html', konteks)

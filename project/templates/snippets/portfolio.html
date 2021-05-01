@@ -25,7 +25,12 @@
                                 </div>
                                 <div class="myportfolio-text">
                                     <p>{{portfolio.deskripsi|truncatewords:"18" }}</p>
+                                    
+
                                     <a href="#" class="btn btn-primary">More Detail</a>
+                            
+                                    
+                                        
                                 </div>
                             </div>
                         </div>
@@ -36,9 +41,13 @@
                     
                 <!-- akhir item-list -->
             </div>
-            <div class="btn-myportfolio mt-3">
-                <a href="#" class="btn btn-warning show-btn">Show More</a>
-            </div>
+            
+            {% if jumlah.portfolios > 6 %}
+                <div class="btn-myportfolio mt-3">
+                    <a href="#" class="btn btn-warning show-btn">Show More</a>
+                </div>
+                
+            {% endif %}
             
         </main>
     </div>    

@@ -6,6 +6,15 @@
                 <p>Feel Free to Contact Me Anytime</p>
                 <h1 class="text-warning">Get In Touch</h1>
             </header>
+            {% if request.POST.pengirim %}
+            <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                <strong>Hello {{pengirim}}!</strong> We receive your message and will respond shortly.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+
             <div class="mymap-box pt-5">
                 <div class=" mymap-item embed-responsive embed-responsive-16by9 ">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m24!1m12!1m3!1d997.2930125173763!2d104.0535568880357!3d1.031273890840576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m9!3e0!4m3!3m2!1d1.0312778999999999!2d104.0541664!4m3!3m2!1d1.0312658!2d104.05416299999999!5e0!3m2!1sid!2sid!4v1619076699075!5m2!1sid!2sid" allowfullscreen="True" loading="lazy" title="mymap"></iframe>
@@ -53,7 +62,12 @@
     
                 <!-- akhir item-list -->
             </div>
-            <div class="pt-5 form-box">
+
+            
+            
+                
+
+            <div class="pt-5 form-box" id="form-box">
                 <form class="form-mycontact-list d-grid" id="form-mycontact" method="POST">
                     {% csrf_token %}
                         <input type="text" class="form-control form-name" name="{{contact.pengirim.name}}" placeholder="Your first name" id="form-name" maxlength="{{contact.pengirim.max}}" required>
