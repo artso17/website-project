@@ -13,18 +13,19 @@ from .models import (
 )
 # Create your views here.
 
+skills = Skill.objects.all()
+services = Service.objects.all()
+portfolios = Portfolio.objects.all()
+blogs = Blog.objects.all()
+
 
 def home(request):
-    myabout = About.objects.filter(judul='About Me').get()
+    myabout = About.objects.get(judul='About Me')
     birth = myabout.birthday
     datenow = datetime.date.today()
     dayage = datenow-birth
     age = dayage.days//365
 
-    skills = Skill.objects.all()
-    services = Service.objects.all()
-    portfolios = Portfolio.objects.all()
-    blogs = Blog.objects.all()
     contact = CreateModel(request.POST)
 
     pengirim = ''
@@ -59,3 +60,11 @@ def home(request):
         'blogs': len(blogs),
     }
     return render(request, 'index.html', konteks)
+
+
+def PortfolioListView(request, myskill):
+    portfolios = Portfolio.objects.filter(skill__judul=myskill)
+    konteks = {
+        'portfolios': portfolios,
+    }
+    return render(request, 'blog/index.html', konteks)
