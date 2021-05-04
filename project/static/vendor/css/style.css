@@ -378,6 +378,7 @@ main {
 .my-item {
     background-color: var(--c-grey);
     border-radius: 15px;
+    overflow: hidden;
 }
 
 .my-describ {
@@ -393,13 +394,22 @@ main {
 
 }
 
+.detail-item {
+    align-items: center;
+    width: 100%;
+}
+
+.detail-box {
+    border-radius: 25px;
+}
 
 /* awal blog */
 
-.item-blog img {
-    width: 90%;
-    margin: auto;
-    margin-top: 10px;
+.card-img-top {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+
 }
 
 /* awal contact */

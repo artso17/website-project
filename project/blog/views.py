@@ -25,6 +25,19 @@ def home(request):
     datenow = datetime.date.today()
     dayage = datenow-birth
     age = dayage.days//365
+    portfolio_by_published = portfolios.order_by('-published')
+    blog_by_published = blogs.order_by('-published')
+    new_portfolios = []
+    for i in range(len(portfolio_by_published)):
+        if i == 6:
+            break
+        new_portfolios.append(portfolio_by_published[i])
+
+    new_blogs = []
+    for i in range(len(blog_by_published)):
+        if i == 6:
+            break
+        new_blogs.append(blog_by_published[i])
 
     contact = CreateModel(request.POST)
 
@@ -35,8 +48,8 @@ def home(request):
         'skills': skills,
         'age': age,
         'services': services,
-        'portfolios': portfolios,
-        'blogs': blogs,
+        'portfolios': new_portfolios,
+        'blogs': new_blogs,
         'contact': contact,
 
     }
@@ -52,7 +65,6 @@ def home(request):
                 email=email,
                 deskripsi=deskripsi,
             )
-
             konteks['pengirim'] = pengirim
 
     konteks['jumlah'] = {
@@ -62,8 +74,15 @@ def home(request):
     return render(request, 'index.html', konteks)
 
 
-def PortfolioListView(request, myskill):
+def PortfolioFilterView(request, myskill):
     portfolios = Portfolio.objects.filter(skill__judul=myskill)
+    konteks = {
+        'portfolios': portfolios,
+    }
+    return render(request, 'blog/index.html', konteks)
+
+
+def PortfolioAllView(request):
     konteks = {
         'portfolios': portfolios,
     }

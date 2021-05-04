@@ -2,6 +2,94 @@
 {% load static %}
 
 {% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand f-family-roboto" href="#">Art<span
+            class="f-family-saira font-weight-bold c-blue">SO</span> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto f-family-roboto">
+                <a class="nav-item nav-link " href="{% url 'home' %}">Home</a>
+                <a class="nav-item nav-link active disabled" href="{% url 'list:portfolio' %}">Portfolio</a>
+                <a class="nav-item nav-link " href="#">Blog</a>
+                <a class="nav-item nav-link " href="#">Contact</a>
+                <div class="row justify-content-end">
+                    <div class="col-4 col-sm-2">
+                        <div class="row justify-content-around">
+                            <a class="nav-item nav-link nav-img" href="https://www.facebook.com/aman.bay.79827" target="_blank" title="Follow my facebook"><img src="{% static 'vendor/css/media/images/facebook-3 1.svg' %}" alt="facebook" srcset=""></a>
+                            <a class="nav-item nav-link nav-img" href="https://www.instagram.com/adityafreesetyo1/" target="_blank" title="Follow my instagram"><img src="{% static 'vendor/css/media/images/instagram.svg' %}" alt="instagram" srcset=""></a>
+                            <a class="nav-item nav-link nav-img" href="https://www.linkedin.com/in/aditya-prasetyo-budiarso-6702481b5/" target="_blank" title="Follow my linkedin"><img src="{% static 'vendor/css/media/images/linkedin.svg' %}" alt="linkedin" srcset=""></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</nav>
     
+<section class="myportfolio" id="myportfolio">
+    <div class=" myportfolio-container text-light">
+        <main class="myportfolio-main">
+            <header class="myportfolio-header">
+                <p>Awesome Work and Enjoy</p>
+                <h1 class="text-warning">My Portfolio</h1>
+            </header>
+            <div class="myportfolio-list cust-list d-grid pt-5">
+                <!-- awal item-list -->
+                {% for portfolio in portfolios %}
+                    {% if portfolio.is_published %}
+                        <div class="myportfolio-item my-item card">
+                        
+                            {% if portfolio.gambar.url is not none %}
+                        
+                            <div class="card-img-top" style="background-image:url({{portfolio.gambar.url}});display:none;">
+                                <h1 class="d-none">About Me</h1>
+                            </div>
+                            {% endif %}
+                            <div class=" myportfolio-box my-box d-grid">
+                                <div class=" d-grid myportfolio-describ my-describ">
+                                    <img src="{% static 'vendor/css/media/images/icon-kalender.svg' %}" alt="Icon">
+                                    <h6 class="card-text m-0">{{portfolio.skill}}</h6>
+                                    <img src="{% static 'vendor/css/media/images/icon-kalender.svg' %}" alt="">
+                                    <h6 class="card-text m-0">{{portfolio.published|date}}</h6> 
+                                </div>
+                                <div class="myportfolio-text">
+                                    <p>{{portfolio.deskripsi|truncatewords:"18" }}</p>
+                                        
+                                </div>
+                                <a href="" class="btn btn-primary">More Detail</a>
+
+
+                            </div>
+                        </div>
+                        
+                        
+                            
+                    {% endif %}
+                    
+                {% endfor %}
+                    
+                <!-- akhir item-list -->
+            </div>
+            
+            {% if jumlah.portfolios > 6 %}
+                <div class="btn-myportfolio mt-3">
+                    <a href="{% url 'list:portfolio' %}" class="btn btn-warning show-btn">Show More</a>
+                </div>
+                
+            {% endif %}
+            
+        </main>
+    </div>    
+    </section>
+
+
+
+
+
 {% endblock content %}
     

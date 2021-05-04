@@ -16,19 +16,21 @@
                     <div class="myblog-item my-item card">
                     
                         {% if blog.gambar.url is not none %}
-                            <img src="{{blog.gambar.url}}" class="card-img-top" alt="Sample of Image">
-
+                            <!-- <img src="{{blog.gambar.url}}" class="card-img-top" alt="Sample of Image"> -->
+                            <div class="card-img-top" style="background-image:url({{blog.gambar.url}})">
+                                <h1 class="d-none">About Me</h1>
+                            </div>
                         {% endif %}
                         <div class=" myblog-box my-box d-grid">
                             <h5 class="my-judul">{{blog.judul}}</h5>
                             <div class=" d-grid myblog-describ my-describ">
                                 <img src="{% static 'vendor/css/media/images/icon-kalender.svg' %}" alt="">
-                                <h6 class="card-text m-0">{{blog.published}}</h6> 
+                                <h6 class="card-text m-0">{{blog.published|date}}</h6> 
                             </div>
                             <div class="myblog-text">
                                 <p>{{blog.deskripsi|truncatewords:"18" }}</p>
-                                <a href="#" class="btn btn-primary">More Detail</a>
                             </div>
+                            <a href="#" class="btn btn-primary">More Detail</a>
                         </div>
                     </div>
 
