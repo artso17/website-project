@@ -9,8 +9,7 @@ from .views import (
 
 app_name = 'list'
 urlpatterns = [
-
-    path('portfolio/', PortfolioAllView, name='portfolio'),
-    re_path(r'^portfolio/(?P<myskill>[\w]+)/',
-            PortfolioFilterView, name='portfolio'),
+    path('portfolio/skill/<slug:myskill>/',
+         PortfolioFilterView, name='portfolio_filter'),
+    path('portfolio/all/<int:halaman>/', PortfolioAllView, name='portfolio'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

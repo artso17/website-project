@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -21,10 +22,22 @@ class About(models.Model):
         return '{}.{}'.format(self.id, self.judul)
 
 
+class Kategori(models.Model):
+    kategori = models.CharField(max_length=100)
+
+    def __str__(self):
+        return '{}'.format(self.kategori)
+
+
 class Skill(models.Model):
     judul = models.CharField(max_length=50)
     nilai = models.PositiveSmallIntegerField()
     is_published = models.BooleanField(default=False)
+    slug = models.SlugField(blank=True, editable=False)
+
+    def save(self):
+        self.slug = slugify(self.judul)
+        super(Skill, self).save()
 
     def __str__(self):
         return '{}'.format(self.judul)
@@ -47,6 +60,11 @@ class Portfolio(models.Model):
     gambar = models.ImageField(null=True, blank=True, upload_to='images/')
     deskripsi = models.TextField()
     is_published = models.BooleanField(default=False)
+    slug = models.SlugField(blank=True, editable=False)
+
+    def save(self):
+        self.slug = slugify(self.skill)
+        super(Portfolio, self).save()
 
     def __str__(self):
         return '{}. {}'.format(self.id, self.judul)
@@ -58,6 +76,13 @@ class Blog(models.Model):
     gambar = models.ImageField(null=True, blank=True, upload_to='images/')
     deskripsi = models.TextField()
     is_published = models.BooleanField(default=False)
+    kategori = models.ForeignKey(
+        Kategori, on_delete=models.CASCADE, null=True)
+    slug = models.SlugField(blank=True, editable=False)
+
+    def save(self):
+        self.slug = slugify(self.kategori)
+        super(Blog, self).save()
 
     def __str__(self):
         return '{}.{}'.format(self.id, self.judul)

@@ -4,7 +4,7 @@
 {% block content %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand f-family-roboto" href="#">Art<span
+    <a class="navbar-brand f-family-roboto" href="{% url 'home' %}">Art<span
             class="f-family-saira font-weight-bold c-blue">SO</span> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto f-family-roboto">
                 <a class="nav-item nav-link " href="{% url 'home' %}">Home</a>
-                <a class="nav-item nav-link active disabled" href="{% url 'list:portfolio' %}">Portfolio</a>
+                <a class="nav-item nav-link active disabled" href="{% url 'list:portfolio' 1 %}">Portfolio</a>
                 <a class="nav-item nav-link " href="#">Blog</a>
                 <a class="nav-item nav-link " href="#">Contact</a>
                 <div class="row justify-content-end">
@@ -37,6 +37,19 @@
             <header class="myportfolio-header">
                 <p>Awesome Work and Enjoy</p>
                 <h1 class="text-warning">My Portfolio</h1>
+                <!-- Example single danger button -->
+                <div class="btn-group mt-2">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Skill Categories
+                    </button>
+                    <div class="dropdown-menu">
+                    <a class="dropdown-item " href="{% url 'list:portfolio' 1 %}">All</a>
+                    
+                    {% for skill in skills %}
+                    <a class="dropdown-item" href="{% url 'list:portfolio_filter' skill.slug %}">{{skill.judul}}</a>
+
+                    {% endfor %}
+                </div>
             </header>
             <div class="myportfolio-list cust-list d-grid pt-5">
                 <!-- awal item-list -->
@@ -46,9 +59,9 @@
                         
                             {% if portfolio.gambar.url is not none %}
                         
-                            <div class="card-img-top" style="background-image:url({{portfolio.gambar.url}});display:none;">
-                                <h1 class="d-none">About Me</h1>
-                            </div>
+                                <div class="card-img-top" style="background-image:url({{portfolio.gambar.url}})">
+                                    <h1 class="d-none">About Me</h1>
+                                </div>
                             {% endif %}
                             <div class=" myportfolio-box my-box d-grid">
                                 <div class=" d-grid myportfolio-describ my-describ">
@@ -75,13 +88,6 @@
                     
                 <!-- akhir item-list -->
             </div>
-            
-            {% if jumlah.portfolios > 6 %}
-                <div class="btn-myportfolio mt-3">
-                    <a href="{% url 'list:portfolio' %}" class="btn btn-warning show-btn">Show More</a>
-                </div>
-                
-            {% endif %}
             
         </main>
     </div>    

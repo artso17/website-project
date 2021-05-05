@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import CreateModel
 from django.core.mail import send_mail, EmailMessage
+from django.core.paginator import Paginator
 import datetime
 
 from .models import (
@@ -75,15 +76,25 @@ def home(request):
 
 
 def PortfolioFilterView(request, myskill):
-    portfolios = Portfolio.objects.filter(skill__judul=myskill)
+    portfolios = Portfolio.objects.filter(slug=myskill)
+    skills = Skill.objects.all().exclude(slug=myskill)
     konteks = {
         'portfolios': portfolios,
+        'skills': skills
     }
     return render(request, 'blog/index.html', konteks)
 
 
-def PortfolioAllView(request):
+def PortfolioAllView(request, halaman):
+    or_portfolios = portfolios.order_by('-published')
+    skills = Skill.objects.all()
     konteks = {
-        'portfolios': portfolios,
+        'skills': skills,
+        'portfolios': or_portfolios,
     }
+    if len(or_portfolios) > 3:
+        p = Paginator(or_portfolios, 3)
+        konteks['portfolios'] = p.page(halaman).object_list
+
+    print(halaman)
     return render(request, 'blog/index.html', konteks)
