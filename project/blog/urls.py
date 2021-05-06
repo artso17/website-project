@@ -11,5 +11,5 @@ app_name = 'list'
 urlpatterns = [
     path('portfolio/skill/<slug:myskill>/',
          PortfolioFilterView, name='portfolio_filter'),
-    path('portfolio/all/<int:halaman>/', PortfolioAllView, name='portfolio'),
+    path('portfolio/all/', PortfolioAllView, name='portfolio'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -248,6 +248,7 @@ main {
     padding-left: 60px;
     padding-right: 30px;
     display: grid;
+    row-gap: 40px;
 }
 
 .about-main {
@@ -540,7 +541,8 @@ textarea {
     }
 
     main {
-        padding-left: 30px
+        padding-left: 30px;
+
     }
 
 

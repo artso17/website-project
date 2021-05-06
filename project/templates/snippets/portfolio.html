@@ -6,7 +6,7 @@
                 <p>Awesome Work and Enjoy</p>
                 <h1 class="text-warning">My Portfolio</h1>
             </header>
-            <div class="myportfolio-list cust-list d-grid pt-5">
+            <div class="myportfolio-list cust-list d-grid ">
                 <!-- awal item-list -->
                 {% for portfolio in portfolios %}
                     {% if portfolio.is_published %}
@@ -45,8 +45,8 @@
             </div>
             
             {% if jumlah.portfolios > 6 %}
-                <div class="btn-myportfolio mt-3">
-                    <a href="{% url 'list:portfolio' 1 %}" class="btn btn-warning show-btn">Show More</a>
+                <div class="btn-myportfolio">
+                    <a href="{% url 'list:portfolio' %}?page=1" class="btn btn-warning show-btn">Show More</a>
                 </div>
                 
             {% endif %}
