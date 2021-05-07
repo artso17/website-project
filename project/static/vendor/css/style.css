@@ -340,6 +340,31 @@ main {
 }
 
 /* awal myportfolio */
+.detail-item .my-describ {
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 5px;
+}
+
+/* .detail-item .judul-detail {
+    width: 100%;
+} */
+
+.detail-item .card-text::before {
+    content: ' ';
+    display: block;
+    /* background-color: white; */
+    background-image: url('media/images/icon-kalender.svg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    width: 30px !important;
+    height: 20px;
+    float: left;
+    background-position: left;
+    align-self: stretch;
+
+}
+
 
 .cust-nav {
     row-gap: 5px;
@@ -405,6 +430,14 @@ main {
 }
 
 /* awal blog */
+.card-img-detail {
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+
+}
 
 .card-img-top {
     height: 250px;

@@ -37,7 +37,7 @@
             <header class="myportfolio-header">
                 <p>Awesome Work and Enjoy</p>
                 <h1 class="text-warning">My Portfolio</h1>
-                <!-- Example single danger button -->
+                
                 <div class="btn-group mt-2">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Skill Categories
@@ -46,14 +46,55 @@
                     <a class="dropdown-item " href="{% url 'list:portfolio' %}">All</a>
                     
                     {% for skill in skills %}
-                    <a class="dropdown-item" href="{% url 'list:portfolio_filter' skill.slug %}">{{skill.judul}}</a>
+                        <a class="dropdown-item" href="{% url 'list:portfolio_filter' skill.slug %}">{{skill.judul}}</a>
 
                     {% endfor %}
                 </div>
             </header>
+            <div class="myportfolio-detail detail-item my-item card">
+                    
+                {% if detail_portfolio.gambar1.url is not none %}
+            
+                    <div class=" card-img-detail" style="background-image:url({{detail_portfolio.gambar1.url}})">
+                        <h1 class="d-none">About Me</h1>
+                    </div>
+                {% endif %}
+                    <div class=" myportfolio-box my-box d-grid">
+                        <div class="judul-detail">
+                            <h3>{{detail_portfolio.judul}}</h3>
+                        </div>
+                        <div class=" d-grid myportfolio-describ my-describ">
+                            <h6 class="card-text m-0">{{detail_portfolio.skill}}</h6>
+                            <h6 class="card-text m-0">{{detail_portfolio.published|date}}</h6> 
+                        </div>
+                        <div class="myportfolio-text">
+                            <p>{{detail_portfolio.deskripsi1}}</p>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    {% if detail_portfolio.gambar2.url is not none %}
+                    <div class="card-img-detail" style="background-image:url({{detail_portfolio.gambar2.url}})">
+                        <h1 class="d-none">About Me</h1>
+                    </div>
+                    {% endif %}
+                    
+                    <div class=" myportfolio-box my-box d-grid">
+                        {% if detail_portfolio.deskripsi2 is not none %}
+                        <div class="myportfolio-text">
+                            <p>{{detail_portfolio.deskripsi1}}</p>
+                        </div>
+                    {% endif %}
+                    </div>
+
+
+
+
+            </div>
             <div class="myportfolio-list cust-list d-grid ">
                 <!-- awal item-list -->
-                {% for portfolio in portfolios %}
+                {% for portfolio in oth_portfolios %}
                     {% if portfolio.is_published %}
                         <div class="myportfolio-item my-item card">
                         

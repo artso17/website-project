@@ -57,8 +57,10 @@ class Portfolio(models.Model):
     judul = models.CharField(max_length=100)
     published = models.DateTimeField(auto_now_add=True)
     skill = models.ForeignKey(Skill, on_delete=models.CASCADE)
-    gambar = models.ImageField(null=True, blank=True, upload_to='images/')
-    deskripsi = models.TextField()
+    gambar1 = models.ImageField(null=True, blank=True, upload_to='images/')
+    gambar2 = models.ImageField(null=True, blank=True, upload_to="images/")
+    deskripsi1 = models.TextField()
+    deskripsi2 = models.TextField(blank=True)
     is_published = models.BooleanField(default=False)
     slug = models.SlugField(blank=True, editable=False)
 
@@ -73,8 +75,10 @@ class Portfolio(models.Model):
 class Blog(models.Model):
     judul = models.CharField(max_length=200)
     published = models.DateTimeField(auto_now_add=True)
-    gambar = models.ImageField(null=True, blank=True, upload_to='images/')
+    gambar1 = models.ImageField(null=True, blank=True, upload_to='images/')
+    gambar2 = models.ImageField(null=True, blank=True, upload_to='images/')
     deskripsi = models.TextField()
+    deskripsi2 = models.TextField(blank=True)
     is_published = models.BooleanField(default=False)
     kategori = models.ForeignKey(
         Kategori, on_delete=models.CASCADE, null=True)

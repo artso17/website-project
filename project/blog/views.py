@@ -114,3 +114,25 @@ def PortfolioAllView(request):
     print(konteks)
 
     return render(request, 'blog/portfolio_all.html', konteks)
+
+
+def PortfolioDetailView(request, detail_id):
+    d_portfolio = Portfolio.objects.get(id=detail_id)
+    skill = d_portfolio.slug
+    skills = Skill.objects.all().exclude(slug=skill)
+    oth_portfolio = Portfolio.objects.filter(slug=skill).exclude(id=detail_id)
+    new_oth_portfolios = []
+    for i in range(len(oth_portfolio)):
+        new_oth_portfolios.append(oth_portfolio[i])
+        if i == 6:
+            break
+
+    konteks = {
+        'detail_portfolio': d_portfolio,
+        'skills': skills,
+        'oth_portfolios': new_oth_portfolios,
+
+    }
+
+    print(konteks)
+    return render(request, 'blog/portfolio_detail.html', konteks)

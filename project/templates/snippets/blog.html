@@ -15,9 +15,9 @@
                 {% if blog.is_published %}
                     <div class="myblog-item my-item card">
                     
-                        {% if blog.gambar.url is not none %}
+                        {% if blog.gambar1.url is not none %}
                             <!-- <img src="{{blog.gambar.url}}" class="card-img-top" alt="Sample of Image"> -->
-                            <div class="card-img-top" style="background-image:url({{blog.gambar.url}})">
+                            <div class="card-img-top" style="background-image:url({{blog.gambar1.url}})">
                                 <h1 class="d-none">About Me</h1>
                             </div>
                         {% endif %}
@@ -28,7 +28,7 @@
                                 <h6 class="card-text m-0">{{blog.published|date}}</h6> 
                             </div>
                             <div class="myblog-text">
-                                <p>{{blog.deskripsi|truncatewords:"18" }}</p>
+                                <p>{{blog.deskripsi1|truncatewords:"18" }}</p>
                             </div>
                             <a href="#" class="btn btn-primary">More Detail</a>
                         </div>
