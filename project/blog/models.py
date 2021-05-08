@@ -23,10 +23,15 @@ class About(models.Model):
 
 
 class Kategori(models.Model):
-    kategori = models.CharField(max_length=100)
+    judul = models.CharField(max_length=100)
+    slug = models.SlugField(blank=True, editable=False)
+
+    def save(self):
+        self.slug = slugify(self.judul)
+        super(Kategori, self).save()
 
     def __str__(self):
-        return '{}'.format(self.kategori)
+        return '{}'.format(self.judul)
 
 
 class Skill(models.Model):

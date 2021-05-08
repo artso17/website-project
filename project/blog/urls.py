@@ -6,10 +6,21 @@ from .views import (
     PortfolioFilterView,
     PortfolioAllView,
     PortfolioDetailView,
+    BlogAllView,
+    BlogFilterView,
+    BlogDetailView,
+    ContactView,
 )
 
 app_name = 'list'
 urlpatterns = [
+    path('contact/',
+         ContactView, name='contact'),
+    path('blog/detail/<slug:detail_id>/',
+         BlogDetailView, name='blog_detail'),
+    path('blog/kategori/<slug:mykategori>/',
+         BlogFilterView, name='blog_filter'),
+    path('blog/all/', BlogAllView, name='blog'),
     path('portfolio/detail/<slug:detail_id>/',
          PortfolioDetailView, name='portfolio_detail'),
     path('portfolio/skill/<slug:myskill>/',

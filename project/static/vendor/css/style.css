@@ -306,6 +306,12 @@ main {
     grid-area: ability1;
 }
 
+
+
+.progress {
+    border-radius: 20px;
+}
+
 .takaran {
     grid-area: ability2;
     text-align: end;
@@ -401,6 +407,10 @@ main {
     justify-content: center;
 }
 
+.btn {
+    border-radius: 20px;
+}
+
 .my-item {
     background-color: var(--c-grey);
     border-radius: 15px;
@@ -432,7 +442,7 @@ main {
 /* awal blog */
 .card-img-detail {
     height: 600px;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
@@ -475,6 +485,11 @@ input {
     color: white !important;
     font-size: 20px !important;
     height: 50px !important;
+
+}
+
+.form-control {
+    border-radius: 30px !important;
 }
 
 textarea {
@@ -566,8 +581,8 @@ textarea {
 
     .skill-list {
         grid-template-columns: 100%;
-
     }
+
 
     .cust-list {
         grid-template-columns: 1fr 1fr;
@@ -575,7 +590,10 @@ textarea {
 
     main {
         padding-left: 30px;
+    }
 
+    .card-img-detail {
+        height: 400px;
     }
 
 
@@ -619,6 +637,10 @@ textarea {
             'form4'
         ;
     }
+
+    .card-img-detail {
+        height: 300px;
+    }
 }
 
 @media screen and (max-width: 442px) {
@@ -653,6 +675,10 @@ textarea {
     .map-box {
         height: 200px;
 
+    }
+
+    .card-img-detail {
+        height: 150px;
     }
 
 }

@@ -13,8 +13,8 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto f-family-roboto">
                 <a class="nav-item nav-link " href="{% url 'home' %}">Home</a>
-                <a class="nav-item nav-link active disabled" href="#">Portfolio</a>
-                <a class="nav-item nav-link " href="{% url 'list:blog' %}?page=1">Blog</a>
+                <a class="nav-item nav-link " href="{% url 'list:portfolio' %}?page=1">Portfolio</a>
+                <a class="nav-item nav-link active disabled" href="{% url 'list:blog' %}?page=1">Blog</a>
                 <a class="nav-item nav-link " href="{% url 'list:contact' %}">Contact</a>
                 <div class="row justify-content-end">
                     <div class="col-4 col-sm-2">
@@ -31,53 +31,91 @@
     </div>
 </nav>
     
-
-
-
-<section class="myportfolio" id="myportfolio">
-    <div class=" myportfolio-container text-light">
-        <main class="myportfolio-main">
-            <header class="myportfolio-header">
-                <p>Awesome Work and Enjoy</p>
-                <h1 class="text-warning">My Portfolio</h1>
-                <!-- Example single danger button -->
+<section class="myblog" id="myblog">
+    <div class=" myblog-container text-light">
+        <main class="myblog-main">
+            <header class="myblog-header">
+                <p>Check Out My Blog Post</p>
+                <h1 class="text-warning">Latest Blogs</h1>
+                
                 <div class="btn-group mt-2">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Skill Categories
+                    Blog Categories
                     </button>
                     <div class="dropdown-menu">
-                    <a class="dropdown-item " href="{% url 'list:portfolio' %}?page=1">All</a>
+                    <a class="dropdown-item " href="{% url 'list:blog' %}?page=1">All</a>
                     
-                    {% for skill in skills %}
-                        <a class="dropdown-item" href="{% url 'list:portfolio_filter' skill.slug %}?page=1">{{skill.judul}}</a>
+                    {% for kategori in kategories %}
+                        <a class="dropdown-item" href="{% url 'list:blog_filter' kategori.slug %}?page=1">{{kategori.judul}}</a>
 
                     {% endfor %}
                 </div>
             </header>
-            <div class="myportfolio-list cust-list d-grid ">
+            <div class="myblog-detail detail-item my-item card">
+                    
+                {% if detail_blog.gambar1.url is not none %}
+            
+                    <div class=" card-img-detail" style="background-image:url({{detail_blog.gambar1.url}})">
+                        <h1 class="d-none">About Me</h1>
+                    </div>
+                {% endif %}
+                    <div class=" myblog-box my-box d-grid">
+                        <div class="judul-detail">
+                            <h3>{{detail_blog.judul}}</h3>
+                        </div>
+                        <div class=" d-grid myblog-describ my-describ">
+                            <h6 class="card-text m-0">{{detail_blog.kategori}}</h6>
+                            <h6 class="card-text m-0">{{detail_blog.published|date}}</h6> 
+                        </div>
+                        <div class="myblog-text">
+                            <p>{{detail_blog.deskripsi}}</p>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    {% if detail_blog.gambar2.url is not none %}
+                    <div class="card-img-detail" style="background-image:url({{detail_blog.gambar2.url}})">
+                        <h1 class="d-none">About Me</h1>
+                    </div>
+                    {% endif %}
+                    
+                    <div class=" myblog-box my-box d-grid">
+                        {% if detail_blog.deskripsi2 is not none %}
+                        <div class="myblog-text">
+                            <p>{{detail_blog.deskripsi2}}</p>
+                        </div>
+                    {% endif %}
+                    </div>
+
+
+
+
+            </div>
+            <div class="myblog-list cust-list d-grid ">
                 <!-- awal item-list -->
-                {% for portfolio in portfolios %}
-                    {% if portfolio.is_published %}
-                        <div class="myportfolio-item my-item card">
+                {% for blog in oth_blogs %}
+                    {% if blog.is_published %}
+                        <div class="myblog-item my-item card">
                         
-                            {% if portfolio.gambar1.url is not none %}
+                            {% if blog.gambar1.url is not none %}
                         
-                                <div class="card-img-top" style="background-image:url({{portfolio.gambar1.url}})">
+                                <div class="card-img-top" style="background-image:url({{blog.gambar1.url}})">
                                     <h1 class="d-none">About Me</h1>
                                 </div>
                             {% endif %}
-                            <div class=" myportfolio-box my-box d-grid">
-                                <div class=" d-grid myportfolio-describ my-describ">
+                            <div class=" myblog-box my-box d-grid">
+                                <div class=" d-grid myblog-describ my-describ">
                                     <img src="{% static 'vendor/css/media/images/icon-kalender.svg' %}" alt="Icon">
-                                    <h6 class="card-text m-0">{{portfolio.skill}}</h6>
+                                    <h6 class="card-text m-0">{{blog.kategori}}</h6>
                                     <img src="{% static 'vendor/css/media/images/icon-kalender.svg' %}" alt="">
-                                    <h6 class="card-text m-0">{{portfolio.published|date}}</h6> 
+                                    <h6 class="card-text m-0">{{blog.published|date}}</h6> 
                                 </div>
-                                <div class="myportfolio-text">
-                                    <p>{{portfolio.deskripsi1|truncatewords:"18" }}</p>
+                                <div class="myblog-text">
+                                    <p>{{blog.deskripsi|truncatewords:"18" }}</p>
                                         
                                 </div>
-                                <a href="{% url 'list:portfolio_detail' portfolio.id %}" class="btn btn-primary">More Detail</a>
+                                <a href="{% url 'list:blog_detail' blog.id %}" class="btn btn-primary">More Detail</a>
 
 
                             </div>

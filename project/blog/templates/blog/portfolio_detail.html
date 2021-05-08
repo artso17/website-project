@@ -14,8 +14,8 @@
         <div class="navbar-nav ml-auto f-family-roboto">
                 <a class="nav-item nav-link " href="{% url 'home' %}">Home</a>
                 <a class="nav-item nav-link active disabled" href="#">Portfolio</a>
-                <a class="nav-item nav-link " href="#">Blog</a>
-                <a class="nav-item nav-link " href="#">Contact</a>
+                <a class="nav-item nav-link " href="{% url 'list:blog' %}?page=1">Blog</a>
+                <a class="nav-item nav-link " href="{% url 'list:contact' %}">Contact</a>
                 <div class="row justify-content-end">
                     <div class="col-4 col-sm-2">
                         <div class="row justify-content-around">
@@ -43,10 +43,10 @@
                     Skill Categories
                     </button>
                     <div class="dropdown-menu">
-                    <a class="dropdown-item " href="{% url 'list:portfolio' %}">All</a>
+                    <a class="dropdown-item " href="{% url 'list:portfolio' %}?page=1">All</a>
                     
                     {% for skill in skills %}
-                        <a class="dropdown-item" href="{% url 'list:portfolio_filter' skill.slug %}">{{skill.judul}}</a>
+                        <a class="dropdown-item" href="{% url 'list:portfolio_filter' skill.slug %}?page=1">{{skill.judul}}</a>
 
                     {% endfor %}
                 </div>
@@ -83,7 +83,7 @@
                     <div class=" myportfolio-box my-box d-grid">
                         {% if detail_portfolio.deskripsi2 is not none %}
                         <div class="myportfolio-text">
-                            <p>{{detail_portfolio.deskripsi1}}</p>
+                            <p>{{detail_portfolio.deskripsi2}}</p>
                         </div>
                     {% endif %}
                     </div>
