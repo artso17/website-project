@@ -174,6 +174,12 @@ a:hover {
     z-index: 88;
 }
 
+.navbar-brand .logo {
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+}
+
 .col-sidebar {
     height: 60%;
     width: fit-content;
