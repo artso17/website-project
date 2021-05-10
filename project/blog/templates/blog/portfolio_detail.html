@@ -67,7 +67,7 @@
                             <h6 class="card-text m-0">{{detail_portfolio.published|date}}</h6> 
                         </div>
                         <div class="myportfolio-text">
-                            <p>{{detail_portfolio.deskripsi1}}</p>
+                            {{detail_portfolio.deskripsi1 }}
                         </div>
                         
                         
@@ -82,7 +82,7 @@
                     <div class=" myportfolio-box my-box d-grid">
                         {% if detail_portfolio.deskripsi2 is not none %}
                         <div class="myportfolio-text">
-                            <p>{{detail_portfolio.deskripsi2}}</p>
+                            {{detail_portfolio.deskripsi2|safe}}
                         </div>
                     {% endif %}
                     </div>

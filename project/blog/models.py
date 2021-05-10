@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -64,8 +65,9 @@ class Portfolio(models.Model):
     skill = models.ForeignKey(Skill, on_delete=models.CASCADE)
     gambar1 = models.ImageField(null=True, blank=True, upload_to='images/')
     gambar2 = models.ImageField(null=True, blank=True, upload_to="images/")
-    deskripsi1 = models.TextField()
-    deskripsi2 = models.TextField(blank=True)
+    deskripsi1 = RichTextField(blank=True, null=True)
+
+    deskripsi2 = RichTextField(blank=True, null=True)
     is_published = models.BooleanField(default=False)
     slug = models.SlugField(blank=True, editable=False)
 
@@ -82,8 +84,8 @@ class Blog(models.Model):
     published = models.DateTimeField(auto_now_add=True)
     gambar1 = models.ImageField(null=True, blank=True, upload_to='images/')
     gambar2 = models.ImageField(null=True, blank=True, upload_to='images/')
-    deskripsi = models.TextField()
-    deskripsi2 = models.TextField(blank=True)
+    deskripsi = RichTextField()
+    deskripsi2 = RichTextField(null=True, blank=True)
     is_published = models.BooleanField(default=False)
     kategori = models.ForeignKey(
         Kategori, on_delete=models.CASCADE, null=True)
