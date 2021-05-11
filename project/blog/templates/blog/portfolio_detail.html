@@ -63,8 +63,8 @@
                             <h3>{{detail_portfolio.judul}}</h3>
                         </div>
                         <div class=" d-grid myportfolio-describ my-describ">
-                            <h6 class="card-text m-0">{{detail_portfolio.skill}}</h6>
-                            <h6 class="card-text m-0">{{detail_portfolio.published|date}}</h6> 
+                            <h6 class="skill-detail card-text m-0">{{detail_portfolio.skill}}</h6>
+                            <h6 class="published-detail card-text m-0">{{detail_portfolio.published|date}}</h6> 
                         </div>
                         <div class="myportfolio-text">
                             {{detail_portfolio.deskripsi1 }}
@@ -105,7 +105,7 @@
                             {% endif %}
                             <div class=" myportfolio-box my-box d-grid">
                                 <div class=" d-grid myportfolio-describ my-describ">
-                                    <img src="{% static 'vendor/css/media/images/icon-kalender.svg' %}" alt="Icon">
+                                    <img src="{% static 'vendor\css\media\images\skill icon.svg' %}" alt="Icon">
                                     <h6 class="card-text m-0">{{portfolio.skill}}</h6>
                                     <img src="{% static 'vendor/css/media/images/icon-kalender.svg' %}" alt="">
                                     <h6 class="card-text m-0">{{portfolio.published|date}}</h6> 

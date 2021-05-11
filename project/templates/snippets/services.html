@@ -11,15 +11,12 @@
                 {% for service in services %}
                     {% if service.is_published %}
                         <div class="item-service item-list d-grid">
-                            <div class="service-image">
-                                
-                                {% if service.icon.url is not None %}
-                                    <img src="{{service.icon.url}}" alt="ikon">
-                                    {% else %}
-                                    <div> </div>
-                                {% endif %}
+                            {% if service.icon.url is not None %}
+                            <div class="service-image" style="background-image:url({{service.icon.url}})">
+                                <h1 class="d-none">About Me</h1>
                                     
                             </div>
+                            {% endif %}
                             <div class="service-describ">
                                 <h3>{{service.judul}}</h3>
                                 <p>{{service.deskripsi|truncatewords:"20"}}</p>

@@ -345,6 +345,11 @@ main {
 
 .service-image {
     grid-area: ikon;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 60px;
+    background-size: contain;
 }
 
 .service-describ {
@@ -362,7 +367,37 @@ main {
     width: 100%;
 } */
 
-.detail-item .card-text::before {
+.detail-item .skill-detail::before {
+    content: ' ';
+    display: block;
+    /* background-color: white; */
+    background-image: url('media/images/skill\ icon.svg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    width: 30px !important;
+    height: 20px;
+    float: left;
+    background-position: left;
+    align-self: stretch;
+
+}
+
+.detail-item .skill-detail::before {
+    content: ' ';
+    display: block;
+    /* background-color: white; */
+    background-image: url('media/images/skill\ icon.svg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    width: 30px !important;
+    height: 20px;
+    float: left;
+    background-position: left;
+    align-self: stretch;
+
+}
+
+.detail-item .published-detail::before {
     content: ' ';
     display: block;
     /* background-color: white; */
@@ -377,6 +412,19 @@ main {
 
 }
 
+.detail-item .category-detail::before {
+    content: ' ';
+    display: block;
+    background-image: url('media/images/category\ icon.svg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    width: 30px !important;
+    height: 20px;
+    float: left;
+    background-position: left;
+    align-self: stretch;
+
+}
 
 .cust-nav {
     row-gap: 5px;
