@@ -72,6 +72,7 @@ def home(request):
         'portfolios': len(portfolios),
         'blogs': len(blogs),
     }
+
     return render(request, 'index.html', konteks)
 
 
