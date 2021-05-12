@@ -65,8 +65,8 @@ class Portfolio(models.Model):
     skill = models.ForeignKey(Skill, on_delete=models.CASCADE)
     gambar1 = models.ImageField(null=True, blank=True, upload_to='images/')
     gambar2 = models.ImageField(null=True, blank=True, upload_to="images/")
+    video = models.FileField(blank=True, null=True, upload_to="videos/")
     deskripsi1 = RichTextField(blank=True, null=True)
-
     deskripsi2 = RichTextField(blank=True, null=True)
     is_published = models.BooleanField(default=False)
     slug = models.SlugField(blank=True, editable=False)
