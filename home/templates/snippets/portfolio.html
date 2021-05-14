@@ -1,0 +1,56 @@
+{% load static %}
+<section class="myportfolio" id="myportfolio">
+    <div class=" myportfolio-container text-light">
+        <main class="myportfolio-main">
+            <header class="myportfolio-header">
+                <p>Awesome Work and Enjoy</p>
+                <h1 class="text-warning">My Portfolio</h1>
+            </header>
+            <div class="myportfolio-list cust-list d-grid ">
+                <!-- awal item-list -->
+                {% for portfolio in portfolios %}
+                    {% if portfolio.is_published %}
+                        <div class="myportfolio-item my-item card">
+                        
+                            {% if portfolio.gambar1.url is not none %}
+                        
+                                <div class="card-img-top" style="background-image:url({{portfolio.gambar1.url}})">
+                                    <h1 class="d-none">About Me</h1>
+                                </div>
+                            {% endif %}
+                            <div class=" myportfolio-box my-box d-grid">
+                                <div class=" d-grid myportfolio-describ my-describ">
+                                    <img src="{% static 'vendor\css\media\images\skill-icon.svg' %}" alt="Icon">
+                                    <h6 class="card-text m-0">{{portfolio.skill}}</h6>
+                                    <img src="{% static 'vendor/css/media/images/icon-kalender.svg' %}" alt="">
+                                    <h6 class="card-text m-0">{{portfolio.published|date}}</h6> 
+                                </div>
+                                <div class="myportfolio-text">
+                                    <p>{{portfolio.deskripsi1|truncatewords:"18" }}</p>
+                                        
+                                </div>
+                                <a href="{% url 'list:portfolio_detail' portfolio.id %}" class="btn btn-primary">More Detail</a>
+
+
+                            </div>
+                        </div>
+                        
+                        
+                            
+                    {% endif %}
+                    
+                {% endfor %}
+                    
+                <!-- akhir item-list -->
+            </div>
+            
+            {% if jumlah.portfolios > 6 %}
+                <div class="btn-myportfolio">
+                    <a href="{% url 'list:portfolio' %}?page=1" class="btn btn-warning show-btn">Show More</a>
+                </div>
+                
+            {% endif %}
+            
+        </main>
+    </div>    
+    </section>
